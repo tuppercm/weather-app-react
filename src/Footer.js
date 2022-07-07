@@ -7,7 +7,7 @@ export default function Footer() {
       <footer>
         <p>
           <a
-            href="https://github.com/tuppercm/weather-app"
+            href="https://github.com/tuppercm/weather-app-react"
             className="footer-link"
             target="_blank"
             rel="noreferrer"
