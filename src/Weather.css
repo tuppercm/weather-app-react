@@ -1,0 +1,68 @@
+.current-button {
+  background-color: #00adec;
+  border-color: #00adec;
+  padding: 5px;
+  color: white;
+  transition: 300ms all ease-in-out;
+}
+
+.current-button:hover {
+  background-color: white;
+  color: #002a41;
+}
+
+.current-section {
+  margin: 15px auto;
+  padding: 10px 15px 0px 15px;
+  opacity: 0.75;
+}
+
+.daytime {
+  background-color: whitesmoke;
+  color: #002a41;
+}
+
+.nighttime {
+  background-color: #002a41;
+  color: whitesmoke;
+}
+
+.current-details li {
+  list-style: none;
+}
+
+.current-city {
+  color: #00adec;
+  font-size: 50px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Amatic SC", cursive;
+}
+
+.current-description {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.current-temp {
+  font-size: 50px;
+  position: relative;
+  top: -10px;
+}
+
+.current-units {
+  position: relative;
+  top: -32px;
+}
+
+.current-icon {
+  position: relative;
+  top: -20px;
+  float: left;
+}
+
+.last-updated {
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
+}

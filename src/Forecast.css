@@ -1,0 +1,25 @@
+.forecast-section {
+  margin: 15px auto;
+  padding: 10px 15px;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.forecast-icon {
+  font-size: 25px;
+  line-height: 50px;
+}
+
+.forecast-day {
+  color: #00adec;
+  font-size: 30px;
+  font-family: "Amatic SC", cursive;
+}
+
+.forecast-temp {
+  font-size: medium;
+}
+
+.forecast-temp-high {
+  font-weight: 600;
+}
