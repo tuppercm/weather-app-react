@@ -12,3 +12,20 @@
   background-color: whitesmoke;
   box-shadow: 3px 2px 5px #434343;
 }
+
+footer {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+  color: whitesmoke;
+}
+
+.footer-link {
+  text-decoration: underline;
+  color: whitesmoke;
+}
+
+.footer-link:hover {
+  color: #002a41;
+}

@@ -1,5 +1,4 @@
 import "./App.css";
-import Footer from "./Footer";
 import SearchForm from "./SearchForm";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
@@ -10,8 +9,19 @@ export default function App() {
       <SearchForm />
       <Weather />
       <Forecast />
-      <Footer />
-      <script src="src/script.js"></script>
+      <footer>
+        <p>
+          <a
+            href="https://github.com/tuppercm/weather-app-react"
+            className="footer-link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-source code
+          </a>{" "}
+          by Caitlin Tupper
+        </p>
+      </footer>
     </div>
   );
 }
