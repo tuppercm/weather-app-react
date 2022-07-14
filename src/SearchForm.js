@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
+import Weather from "./Weather";
 
 export default function SearchForm() {
   const [city, setCity] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    //search for city
   }
 
   function updateCity(event) {
