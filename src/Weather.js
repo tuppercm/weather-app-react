@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  let [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
-      city: `${response.data.name}`,
-      currentTemp: `${response.data.main.temp}`,
-      icon: `${response.data.weather[0].icon}`,
-      description: `${response.data.weather[0].description}`,
-      high: `${response.data.main.temp_max}`,
-      low: `${response.data.main.temp_min}`,
-      humidity: `${response.data.main.humidity}`,
-      wind: `${response.data.wind.speed}`,
-      lastUpdated: "Sunday 12:55 PM",
+      ready: true,
+      city: response.data.name,
+      currentTemp: response.data.main.temp,
+      icon: response.data.weather[0].icon,
+      description: response.data.weather[0].description,
+      high: response.data.main.temp_max,
+      low: response.data.main.temp_min,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      lastUpdated: new Date(response.data.dt * 1000),
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="current-section borders daytime">
         <span className="current-city">{weatherData.city}</span>
@@ -60,7 +60,7 @@ export default function Weather() {
             </ul>
           </div>
           <p className="last-updated">
-            Last updated: {weatherData.lastUpdated}
+            Last updated: <FormattedDate date={weatherData.lastUpdated} />
           </p>
         </div>
       </div>
