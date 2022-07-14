@@ -10,7 +10,7 @@ export default function Weather() {
     setWeatherData({
       city: `${response.data.name}`,
       currentTemp: `${response.data.main.temp}`,
-      imageURL: "http://openweathermap.org/img/wn/01d@2x.png",
+      icon: `${response.data.weather[0].icon}`,
       description: `${response.data.weather[0].description}`,
       high: `${response.data.main.temp_max}`,
       low: `${response.data.main.temp_min}`,
@@ -33,7 +33,7 @@ export default function Weather() {
             <span className="current-units">°F</span>
 
             <img
-              src={weatherData.imageURL}
+              src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
               alt={weatherData.description}
               className="current-icon"
             ></img>

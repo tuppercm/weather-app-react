@@ -6,6 +6,7 @@ export default function SearchForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    //search for city
   }
 
   function updateCity(event) {
