@@ -12,14 +12,33 @@ export default function FormattedDate(props) {
   let day = days[props.date.getDay()];
 
   let hours = props.date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
   let minutes = props.date.getMinutes();
+
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`;
+  if (props.country === `US`) {
+    //AM
+    if (hours < 12) {
+      if (hours === 0) {
+        hours = `12`;
+      }
+      if (hours >= 1 && hours < 12) {
+        hours = `0${hours}`;
+      }
+      return `${day} ${hours}:${minutes} AM`;
+    } else {
+      //PM
+      if (hours >= 13) {
+        hours = hours - 12;
+      }
+      return `${day} ${hours}:${minutes} PM`;
+    }
+  } else {
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    return `${day} ${hours}:${minutes}`;
+  }
 }

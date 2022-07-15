@@ -29,6 +29,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.name,
+      country: response.data.sys.country,
       currentTemp: response.data.main.temp,
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
@@ -65,7 +66,6 @@ export default function Weather(props) {
           <div className="row">
             <div className="col-5">
               <WeatherTemperature celsius={weatherData.currentTemp} />
-
               <img
                 src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
                 alt={weatherData.description}
@@ -82,20 +82,25 @@ export default function Weather(props) {
                 </li>
                 <li>
                   <i className="fa-solid fa-temperature-half"></i>:{" "}
-                  <strong>H:{Math.round(weatherData.high)}°</strong> L:
-                  {Math.round(weatherData.low)}°
+                  <strong>H:{Math.round(weatherData.high)}°C</strong> L:
+                  {Math.round(weatherData.low)}°C
                 </li>
                 <li>
                   <i className="fa-solid fa-droplet"></i>:{" "}
                   {weatherData.humidity}%
                 </li>
                 <li>
-                  <i className="fa-solid fa-wind"></i>: {weatherData.wind}
+                  <i className="fa-solid fa-wind"></i>:{" "}
+                  {Math.round(weatherData.wind)} m/s
                 </li>
               </ul>
             </div>
             <p className="last-updated">
-              Last updated: <FormattedDate date={weatherData.lastUpdated} />
+              Last updated:{" "}
+              <FormattedDate
+                date={weatherData.lastUpdated}
+                country={weatherData.country}
+              />
             </p>
           </div>
         </div>
