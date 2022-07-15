@@ -1,11 +1,11 @@
 import "./App.css";
-import SearchForm from "./SearchForm";
+import Weather from "./Weather";
 import Forecast from "./Forecast";
 
 export default function App() {
   return (
     <div className="App container">
-      <SearchForm defaultCity="New York" />
+      <Weather defaultCity="New York" />
       <Forecast />
       <footer>
         <p>

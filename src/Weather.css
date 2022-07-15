@@ -1,3 +1,23 @@
+.search-entry {
+  background-color: whitesmoke;
+  padding: 5px;
+  margin-right: 5px;
+  width: 50%;
+}
+
+.search-button {
+  background-color: #002a41;
+  padding: 5px;
+  color: white;
+  margin-right: 5px;
+  transition: 300ms all ease-in-out;
+}
+
+.search-button:hover {
+  background-color: white;
+  color: #002a41;
+}
+
 .current-button {
   background-color: #00adec;
   border-color: #00adec;
