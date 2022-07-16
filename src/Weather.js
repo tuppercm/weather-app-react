@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
-import WeatherTemperature from "./WeatherTemperature";
+import WeatherData from "./WeatherData";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -61,49 +60,7 @@ export default function Weather(props) {
     return (
       <div>
         <div>{cityEntryForm}</div>
-        <div className="current-section borders daytime">
-          <span className="current-city">{weatherData.city}</span>
-          <div className="row">
-            <div className="col-5">
-              <WeatherTemperature celsius={weatherData.currentTemp} />
-              <img
-                src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-                alt={weatherData.description}
-                className="current-icon"
-              ></img>
-              <br />
-            </div>
-            <div className="col-6 current-details">
-              <ul>
-                <li>
-                  <span className="current-description">
-                    {weatherData.description}
-                  </span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-temperature-half"></i>:{" "}
-                  <strong>H:{Math.round(weatherData.high)}°C</strong> L:
-                  {Math.round(weatherData.low)}°C
-                </li>
-                <li>
-                  <i className="fa-solid fa-droplet"></i>:{" "}
-                  {weatherData.humidity}%
-                </li>
-                <li>
-                  <i className="fa-solid fa-wind"></i>:{" "}
-                  {Math.round(weatherData.wind)} m/s
-                </li>
-              </ul>
-            </div>
-            <p className="last-updated">
-              Last updated:{" "}
-              <FormattedDate
-                date={weatherData.lastUpdated}
-                country={weatherData.country}
-              />
-            </p>
-          </div>
-        </div>
+        <WeatherData data={weatherData} />
       </div>
     );
   } else {
