@@ -6,15 +6,22 @@ import WeatherIcon from "./WeatherIcon";
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecastData, setForecastData] = useState(null);
+  let lat = props.lat;
+  let lon = props.lon;
 
   function handleResponse(response) {
-    console.log("handleResponse");
-    setLoaded(true);
     setForecastData(response.data.daily);
+    setLoaded(true);
+  }
+
+  function search() {
+    let apiKey = "dd83c1df45fbeaa91b36a4d969d4c562";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (loaded) {
-    console.log("Forecast loaded");
     return (
       <div className="forecast-section borders">
         <div className="row">
@@ -34,13 +41,7 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    console.log("Forecast not loaded");
-    let apiKey = "d345b94fee409ccc249832a53244de54";
-    let lat = props.coord.lat;
-    let lon = props.coord.lon;
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(handleResponse);
-    return null;
+    search();
+    return "Forecast not loaded";
   }
 }

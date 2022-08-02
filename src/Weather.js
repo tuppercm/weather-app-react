@@ -8,23 +8,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
 
-  let cityEntryForm = (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="search-entry borders"
-        type="search"
-        placeholder="Enter a city"
-        autoComplete="off"
-        autoFocus="on"
-        onChange={updateCity}
-      />
-      <input className="search-button borders" type="submit" value="Search" />
-      <button className="current-button borders" type="button">
-        <i className="fa-solid fa-location-arrow"></i>
-      </button>
-    </form>
-  );
-
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -34,7 +17,8 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       high: response.data.main.temp_max,
-      coord: response.data.coord,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
       low: response.data.main.temp_min,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -61,13 +45,30 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div>
-        <div>{cityEntryForm}</div>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="search-entry borders"
+            type="search"
+            placeholder="Enter a city"
+            autoComplete="off"
+            autoFocus="on"
+            onChange={updateCity}
+          />
+          <input
+            className="search-button borders"
+            type="submit"
+            value="Search"
+          />
+          <button className="current-button borders" type="button">
+            <i className="fa-solid fa-location-arrow"></i>
+          </button>
+        </form>
         <WeatherData data={weatherData} />
-        <Forecast coord={weatherData.coord} />
+        <Forecast lat={weatherData.lat} lon={weatherData.lon} />
       </div>
     );
   } else {
     search();
-    return <div>{cityEntryForm}</div>;
+    return "WeatherData not Ready";
   }
 }
