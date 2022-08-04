@@ -11,7 +11,7 @@ export default function WeatherData(props) {
           <div className="col-5">
             <WeatherTemperature celsius={props.data.currentTemp} />
             <img
-              src={`http://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
+              src={`https://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
               alt={props.data.description}
               className="current-icon"
             ></img>
