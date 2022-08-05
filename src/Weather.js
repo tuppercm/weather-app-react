@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-import WeatherData from "./WeatherData";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -62,7 +62,7 @@ export default function Weather(props) {
             <i className="fa-solid fa-location-arrow"></i>
           </button>
         </form>
-        <WeatherData data={weatherData} />
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
