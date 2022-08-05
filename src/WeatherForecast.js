@@ -1,5 +1,6 @@
 import React from "react";
 import "./WeatherForecast.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecast() {
   return (
@@ -7,7 +8,7 @@ export default function WeatherForecast() {
       <div className="row">
         <div className="col">
           <div className="forecast-day">Thu</div>
-          <i className="forecast-icon fa-solid fa-cloud-bolt"></i>
+          <WeatherIcon code="11d" />
           <div className="forecast-temp">
             <span className="forecast-temp-high">30</span> 20
           </div>

@@ -14,15 +14,13 @@ export default function WeatherIcon(props) {
     "09n": "fa-cloud-rain",
     "10d": "fa-cloud-rain",
     "10n": "fa-cloud-rain",
-    "11d": "fa-cloud-cloud-bolt",
-    "11n": "fa-cloud-cloud-bolt",
+    "11d": "fa-cloud-bolt",
+    "11n": "fa-cloud-bolt",
     "13d": "fa-snowflake",
     "13n": "fa-snowflake",
     "50d": "fa-smog",
     "50n": "fa-smog",
   };
-
-  console.log(`${codeMapping[props.code]}`);
 
   return (
     <div>
