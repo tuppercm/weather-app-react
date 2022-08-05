@@ -64,11 +64,11 @@ export default function Weather(props) {
           </button>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast lat={weatherData.lat} lon={weatherData.lon} />
       </div>
     );
   } else {
     search();
-    return "WeatherData not Ready";
+    return "Loading...";
   }
 }
