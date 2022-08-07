@@ -22,7 +22,7 @@ export default function FormattedDate(props) {
       if (hours === 0) {
         hours = `12`;
       }
-      if (hours >= 1 && hours < 12) {
+      if (hours >= 1 && hours < 11) {
         hours = `0${hours}`;
       }
       return `${day} ${hours}:${minutes} AM`;
@@ -38,7 +38,7 @@ export default function FormattedDate(props) {
     }
     return `${day} ${hours}:${minutes}`;
   } else if (props.format === "partial") {
-    if (hours < 12) {
+    /*if (hours < 12) {
       if (hours === 0) {
         hours = `12`;
       }
@@ -52,7 +52,7 @@ export default function FormattedDate(props) {
   } else {
     if (hours < 10) {
       hours = `0${hours}`;
-    }
-    return `${hours}`;
+    }*/
+    return `${hours}:${minutes}`;
   }
 }

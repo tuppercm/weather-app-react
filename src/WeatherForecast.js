@@ -9,7 +9,7 @@ export default function WeatherForecast(props) {
 
   useEffect(() => {
     setReady(false);
-  }, [props.lon]);
+  }, [props.coords]);
 
   function handleResponse(response) {
     setForecast(response.data.list);
@@ -17,8 +17,8 @@ export default function WeatherForecast(props) {
   }
 
   function search() {
-    let lat = props.lat;
-    let lon = props.lon;
+    let lat = props.coords.lat;
+    let lon = props.coords.lon;
     const apiKey = "dd83c1df45fbeaa91b36a4d969d4c562";
     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
@@ -26,15 +26,14 @@ export default function WeatherForecast(props) {
   }
 
   if (ready) {
-    console.log(forecast);
     return (
       <div className="forecast-section borders">
         <div className="row">
-          {forecast.map(function (dailyForcast, index) {
+          {forecast.map(function (dailyForecast, index) {
             if (index < 5) {
               return (
                 <div className="col" key={index}>
-                  <WeatherForecastHour data={dailyForcast} />
+                  <WeatherForecastHour data={dailyForecast} />
                 </div>
               );
             } else {

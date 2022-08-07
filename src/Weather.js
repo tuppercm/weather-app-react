@@ -17,8 +17,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       high: response.data.main.temp_max,
-      lat: response.data.coord.lat,
-      lon: response.data.coord.lon,
+      coords: response.data.coord,
       low: response.data.main.temp_min,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -68,7 +67,7 @@ export default function Weather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
-        <WeatherForecast lat={weatherData.lat} lon={weatherData.lon} />
+        <WeatherForecast coords={weatherData.coords} />
       </div>
     );
   } else {

@@ -8,15 +8,15 @@ export default function App() {
         <Weather defaultCity="New York" />
         <footer>
           <p>
+            Coded by Caitlin Tupper and{" "}
             <a
               href="https://github.com/tuppercm/weather-app-react"
               className="footer-link"
               target="_blank"
               rel="noreferrer"
             >
-              Open-source code
-            </a>{" "}
-            by Caitlin Tupper
+              open-sourced on GitHub
+            </a>
           </p>
         </footer>
       </div>
