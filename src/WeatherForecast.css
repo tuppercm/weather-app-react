@@ -7,19 +7,23 @@
 
 .forecast-icon {
   font-size: 25px;
-  line-height: 50px;
+  line-height: 45px;
 }
 
-.forecast-day {
+.forecast-title {
   color: #00adec;
-  font-size: 30px;
+  font-size: 28px;
   font-family: "Amatic SC", cursive;
 }
 
 .forecast-temp {
-  font-size: medium;
+  font-weight: 500;
 }
 
-.forecast-temp-high {
-  font-weight: 600;
+.current-icon {
+  font-size: 40px;
+  position: relative;
+  top: 6px;
+  float: left;
+  margin-right: 10px;
 }

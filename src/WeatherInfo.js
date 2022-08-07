@@ -1,21 +1,19 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherData(props) {
   return (
     <div>
-      <div className="current-section borders daytime">
+      <div className="current-section borders">
         <span className="current-city">{props.data.city}</span>
         <div className="row">
           <div className="col-5">
-            <WeatherTemperature celsius={props.data.currentTemp} />
-            <img
-              src={`https://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
-              alt={props.data.description}
-              className="current-icon"
-            ></img>
-            <br />
+            <span>
+              <WeatherIcon code={props.data.icon} class_name="current-icon" />{" "}
+              <WeatherTemperature celsius={props.data.currentTemp} />
+            </span>
           </div>
           <div className="col-6 current-details">
             <ul>
@@ -43,6 +41,7 @@ export default function WeatherData(props) {
             <FormattedDate
               date={props.data.lastUpdated}
               country={props.data.country}
+              format="full"
             />
           </p>
         </div>
